@@ -88,30 +88,30 @@ void box(std::string input)
     writeImage("taskC.pgm", out, h, w);
 }
 
-// void frame(std::string input)
-// {
-//     // draws a white box exactly in the middle of the picture. The dimensions of the box should be 50% by 50% of the original picture’s width and height.
+void frame(std::string input)
+{
+    // draws a white box exactly in the middle of the picture. The dimensions of the box should be 50% by 50% of the original picture’s width and height.
 
-//     int img[MAX_H][MAX_W];
-//     int h, w;
-//     readImage(input, img, h, w); // read it from the file "inImage.pgm"
+    int img[MAX_H][MAX_W];
+    int h, w;
+    readImage(input, img, h, w); // read it from the file "inImage.pgm"
 
-//     int out[MAX_H][MAX_W];
+    int out[MAX_H][MAX_W];
 
-//     for (int row = 0; row < h; row++)
-//     {
-//         for (int col = 0; col < w; col++)
-//         {
-//             if (row == h / 4 && row < h / 4 * 3 && col > w / 4 && col < w / 4 * 3)
-//             // if the
-//             {
-//                 out[row][col] = 255;
-//             }
-//             else
-//             {
-//                 out[row][col] = img[row][col];
-//             }
-//         }
-//     }
-//     writeImage("outImage.pgm", out, h, w);
-// }
+    for (int row = 0; row < h; row++)
+    {
+        for (int col = 0; col < w; col++)
+        {
+            if ((((row == h / 4 || row == (h - h / 4)) && (col > w / 4 && col < (w - w / 4)))) || ((col == w / 4 || col == (w - w / 4)) && (row > h / 4 && row < (h - h / 4))))
+            // if the
+            {
+                out[row][col] = 255;
+            }
+            else
+            {
+                out[row][col] = img[row][col];
+            }
+        }
+    }
+    writeImage("taskD.pgm", out, h, w);
+}

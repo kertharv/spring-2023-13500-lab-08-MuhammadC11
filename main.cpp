@@ -8,4 +8,5 @@ int main()
     invert(img);
     invertHalf(img);
     box(img);
+    frame(img);
 }

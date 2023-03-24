@@ -6,7 +6,7 @@
 
 * GitHub username:MuhammadC11
 
-* Notes:
+* Notes: using inImage.pgm for my program instead of the provided pgm's
 
 
   

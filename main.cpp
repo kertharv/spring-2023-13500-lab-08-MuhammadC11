@@ -11,4 +11,5 @@ int main()
     frame(image);
     scale(image);
     pixelate(image);
+    return 0;
 }

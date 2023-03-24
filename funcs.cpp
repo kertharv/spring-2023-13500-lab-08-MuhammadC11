@@ -115,3 +115,53 @@ void frame(std::string input)
     }
     writeImage("taskD.pgm", out, h, w);
 }
+
+void scale(std::string input)
+{
+    // scales the image by a factor of 2. The new image should be twice as wide and twice as high as the original image. The new image should be filled with the original image, but each pixel in the new image should be replaced by a 2x2 square of pixels in the original image. The new image should be saved to a file called “outImage.pgm”.
+
+    int img[MAX_H][MAX_W];
+    int h, w;
+    readImage(input, img, h, w); // read it from the file "inImage.pgm"
+
+    int out[MAX_H][MAX_W];
+
+    for (int row = 0; row < h; row++)
+    {
+        for (int col = 0; col < w; col++)
+        {
+            out[row * 2][col * 2] = img[row][col];
+            out[row * 2 + 1][col * 2] = img[row][col];
+            out[row * 2][col * 2 + 1] = img[row][col];
+            out[row * 2 + 1][col * 2 + 1] = img[row][col];
+        }
+    }
+
+    writeImage("taskE.pgm", out, h * 2, w * 2);
+}
+
+void pixelate(std::string input)
+{
+    // pixelates the image by a factor of 2. The new image should be half as wide and half as high as the original image. The new image should be filled with the original image, but each pixel in the new image should be replaced by the average of the 4 pixels in the original image that it covers. The new image should be saved to a file called “outImage.pgm”.
+
+    int img[MAX_H][MAX_W];
+    int h, w;
+    readImage(input, img, h, w); // read it from the file "inImage.pgm"
+
+    int out[MAX_H][MAX_W];
+    int average = 0;
+
+    for (int row = 0; row < h; row++)
+    {
+        for (int col = 0; col < w; col++)
+        {
+            average = (img[row][col] + img[row][col + 1] + img[row + 1][col] + img[row + 1][col + 1]) / 4;
+            out[row][col] = average;
+            out[row + 1][col] = average;
+            out[row][col + 1] = average;
+            out[row + 1][col + 1] = average;
+        }
+    }
+
+    writeImage("taskF.pgm", out, h, w);
+}

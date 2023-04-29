@@ -102,7 +102,8 @@ void frame(std::string input)
     {
         for (int col = 0; col < width; col++)
         {
-            if ((((row == height / 4 || row == (height - height / 4)) && (col > width / 4 && col < (width - width / 4)))) || ((col == width / 4 || col == (width - width / 4)) && (row > height / 4 && row < (height - height / 4))))
+            if ((((row == height / 4 || row == (height - height / 4)) && (col > width / 4 && col < 
+            (width - width / 4)))) || ((col == width / 4 || col == (width - width / 4)) && (row > height / 4 && row < (height - height / 4))))
             // if the
             {
                 out[row][col] = 255;
@@ -118,7 +119,8 @@ void frame(std::string input)
 
 void scale(std::string input)
 {
-    // scales the image by a factor of 2. The new image should be twice as wide and twice as high as the original image. The new image should be filled with the original image, but each pixel in the new image should be replaced by a 2x2 square of pixels in the original image. The new image should be saved to a file called “outImage.pgm”.
+    // scales the image by a factor of 2. The new image should be twice as wide and twice as high as the original image. The new image should be filled 
+    // with the original image, but each pixel in the new image should be replaced by a 2x2 square of pixels in the original image. The new image should be saved to a file called “outImage.pgm”.
 
     int img[MAX_H][MAX_W];
     int height, width;
@@ -142,7 +144,8 @@ void scale(std::string input)
 
 void pixelate(std::string input)
 {
-    // pixelates the image by a factor of 2. The new image should be half as wide and half as high as the original image. The new image should be filled with the original image, but each pixel in the new image should be replaced by the average of the 4 pixels in the original image that it covers. The new image should be saved to a file called “outImage.pgm”.
+    // pixelates the image by a factor of 2. The new image should be half as wide and half as high as the original image. The new image should be filled with the original image, 
+    // but each pixel in the new image should be replaced by the average of the 4 pixels in the original image that it covers. The new image should be saved to a file called “outImage.pgm”.
 
     int img[MAX_H][MAX_W];
     int height, width;
